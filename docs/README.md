@@ -1,38 +1,39 @@
-@contentful/ecommerce-app-base
+commerce-app-custom
 
-# @contentful/ecommerce-app-base
+# commerce-app-custom
 
-## Index
+## Table of contents
 
 ### Interfaces
 
-* [Integration](interfaces/integration.md)
-* [Pagination](interfaces/pagination.md)
-* [ParameterDefinition](interfaces/parameterdefinition.md)
-* [Product](interfaces/product.md)
+- [Integration](interfaces/Integration.md)
+- [Pagination](interfaces/Pagination.md)
+- [ParameterDefinition](interfaces/ParameterDefinition.md)
+- [Product](interfaces/Product.md)
 
-### Type aliases
+### Type Aliases
 
-* [Config](README.md#config)
-* [DeleteFn](README.md#deletefn)
-* [DisabledPredicateFn](README.md#disabledpredicatefn)
-* [MakeCTAFn](README.md#makectafn)
-* [OpenDialogFn](README.md#opendialogfn)
-* [ProductPreviewsFn](README.md#productpreviewsfn)
-* [ProductsFn](README.md#productsfn)
-* [RenderDialogFn](README.md#renderdialogfn)
-* [ValidateParametersFn](README.md#validateparametersfn)
+- [Config](README.md#config)
+- [DeleteFn](README.md#deletefn)
+- [DisabledPredicateFn](README.md#disabledpredicatefn)
+- [MakeCTAFn](README.md#makectafn)
+- [MakeSaveBtnTextFn](README.md#makesavebtntextfn)
+- [OpenDialogFn](README.md#opendialogfn)
+- [ProductPreviewsFn](README.md#productpreviewsfn)
+- [ProductsFn](README.md#productsfn)
+- [RenderDialogFn](README.md#renderdialogfn)
+- [ValidateParametersFn](README.md#validateparametersfn)
 
 ### Functions
 
-* [renderSkuPicker](README.md#renderskupicker)
-* [setup](README.md#setup)
+- [renderSkuPicker](README.md#renderskupicker)
+- [setup](README.md#setup)
 
-## Type aliases
+## Type Aliases
 
 ### Config
 
-Ƭ **Config**: *Record*<*string*, *any*\>
+Ƭ **Config**: `Record`<`string`, `any`\>
 
 Object containing all information configured on the app configuration page.
 
@@ -40,45 +41,113 @@ ___
 
 ### DeleteFn
 
-Ƭ **DeleteFn**: (`index`: *number*) => *void*
+Ƭ **DeleteFn**: (`index`: `number`) => `void`
+
+#### Type declaration
+
+▸ (`index`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `index` | `number` |
+
+##### Returns
+
+`void`
 
 ___
 
 ### DisabledPredicateFn
 
-Ƭ **DisabledPredicateFn**: (`currentValue`: *string*[], `config`: [*Config*](README.md#config)) => *boolean*
+Ƭ **DisabledPredicateFn**: (`currentValue`: `string`[], `config`: [`Config`](README.md#config)) => `boolean`
+
+#### Type declaration
+
+▸ (`currentValue`, `config`): `boolean`
 
 Function that should return true when the button should be disabled.
 
-**`param`** Currently selected skus
+##### Parameters
 
-**`param`** App configuration
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `currentValue` | `string`[] | Currently selected skus |
+| `config` | [`Config`](README.md#config) | App configuration |
 
-**`returns`** true, if the button in the field location should be disabled. false, if the button should be enabled
+##### Returns
+
+`boolean`
+
+true, if the button in the field location should be disabled. false, if the button should be enabled
 
 ___
 
 ### MakeCTAFn
 
-Ƭ **MakeCTAFn**: (`fieldType`: *string*) => *string*
+Ƭ **MakeCTAFn**: (`fieldType`: `string`, `skuType?`: `string`) => `string`
+
+#### Type declaration
+
+▸ (`fieldType`, `skuType?`): `string`
 
 Returns the text that is displayed on the button in the field location.
 
-**`param`** Type of the field the app is used for.
+##### Parameters
 
-**`returns`** Text that should be displayed on the button
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fieldType` | `string` | Type of the field the app is used for. |
+| `skuType?` | `string` | SKU type of the current field. Undefined if only a single SKU type is supported by the app. |
+
+##### Returns
+
+`string`
+
+Text that should be displayed on the button
+
+___
+
+### MakeSaveBtnTextFn
+
+Ƭ **MakeSaveBtnTextFn**: (`selectedSKUs`: `string`[], `skuType?`: `string`) => `string`
+
+#### Type declaration
+
+▸ (`selectedSKUs`, `skuType?`): `string`
+
+Returns the text that is used for confirming the dialog selection.
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `selectedSKUs` | `string`[] | An array of SKUs chosen. |
+| `skuType?` | `string` | - |
+
+##### Returns
+
+`string`
+
+Text that should be displayed on the button
 
 ___
 
 ### OpenDialogFn
 
-Ƭ **OpenDialogFn**: (`sdk`: FieldExtensionSDK, `currentValue`: *string*[] \| *string*, `config`: [*Config*](README.md#config)) => *Promise*<*string*[]\>
+Ƭ **OpenDialogFn**: (`sdk`: `FieldExtensionSDK`, `currentValue`: `string`[] \| `string`, `config`: [`Config`](README.md#config)) => `Promise`<`string`[]\>
+
+#### Type declaration
+
+▸ (`sdk`, `currentValue`, `config`): `Promise`<`string`[]\>
 
 Function that gets called when app wants to open a dialog. Should return an updated list of skus as a Promise.
 
 You probably want to call [`sdk.openCurrentApp`](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/#open-the-current-app-in-a-dialog).
 
-**`example`** 
+**`Example`**
+
 ```javascript
 async function openDialog(sdk, currentValue, config) {
   return await sdk.dialogs.openCurrentApp({
@@ -88,43 +157,81 @@ async function openDialog(sdk, currentValue, config) {
 
 ```
 
-**`param`** (https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
+##### Parameters
 
-**`param`** List of currently selected akus
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `sdk` | `FieldExtensionSDK` | [FieldExtensionSDK](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/) |
+| `currentValue` | `string`[] \| `string` | List of currently selected akus |
+| `config` | [`Config`](README.md#config) | App configuration |
 
-**`param`** App configuration
+##### Returns
 
-**`returns`** Promise containing a list of selected skus
+`Promise`<`string`[]\>
+
+Promise containing a list of selected skus
 
 ___
 
 ### ProductPreviewsFn
 
-Ƭ **ProductPreviewsFn**: (`skus`: *string*[], `config`: [*Config*](README.md#config)) => *Promise*<[*Product*](interfaces/product.md)[]\>
+Ƭ **ProductPreviewsFn**: (`skus`: `string`[], `config`: [`Config`](README.md#config), `skuType?`: `string`) => `Promise`<[`Product`](interfaces/Product.md)[]\>
+
+#### Type declaration
+
+▸ (`skus`, `config`, `skuType?`): `Promise`<[`Product`](interfaces/Product.md)[]\>
 
 Function that returns a list for a given list of skus. The returned value is used to render a product preview.
 
-**`param`** List of skus
+##### Parameters
 
-**`param`** App configuration
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `skus` | `string`[] | List of skus |
+| `config` | [`Config`](README.md#config) | App configuration |
+| `skuType?` | `string` | SKU type of the current field. Undefined if only a single SKU type is supported by the app. |
 
-**`returns`** List of Products which is used to render a preview.
+##### Returns
+
+`Promise`<[`Product`](interfaces/Product.md)[]\>
+
+List of Products which is used to render a preview.
 
 ___
 
 ### ProductsFn
 
-Ƭ **ProductsFn**: (`search`: *string*, `pagination?`: *Partial*<[*Pagination*](interfaces/pagination.md)\>) => *Promise*<ProductsFnResponse\>
+Ƭ **ProductsFn**: (`search`: `string`, `pagination?`: `Partial`<[`Pagination`](interfaces/Pagination.md)\>) => `Promise`<`ProductsFnResponse`\>
+
+#### Type declaration
+
+▸ (`search`, `pagination?`): `Promise`<`ProductsFnResponse`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `search` | `string` |
+| `pagination?` | `Partial`<[`Pagination`](interfaces/Pagination.md)\> |
+
+##### Returns
+
+`Promise`<`ProductsFnResponse`\>
 
 ___
 
 ### RenderDialogFn
 
-Ƭ **RenderDialogFn**: (`sdk`: DialogExtensionSDK) => *void*
+Ƭ **RenderDialogFn**: (`sdk`: `DialogExtensionSDK`) => `void`
+
+#### Type declaration
+
+▸ (`sdk`): `void`
 
 Function that gets called within the Iframe when the app is rendered in a dialog location.
 
-**`example`** 
+**`Example`**
+
 ```javascript
 function renderDialog(sdk) {
   const config = sdk.parameters.invocation;
@@ -135,45 +242,69 @@ function renderDialog(sdk) {
 }
 ```
 
-**`param`** (https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `sdk` | `DialogExtensionSDK` | [DialogExtensionSDK](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/) |
+
+##### Returns
+
+`void`
 
 ___
 
 ### ValidateParametersFn
 
-Ƭ **ValidateParametersFn**: (`parameters`: *Record*<*string*, *string*\>) => *string* \| *null*
+Ƭ **ValidateParametersFn**: (`parameters`: `Record`<`string`, `string`\>) => `string` \| ``null``
+
+#### Type declaration
+
+▸ (`parameters`): `string` \| ``null``
 
 Custom code that validates installation parameters that is run before saving.
 
-**`param`** Object containg the entered parameters.
+##### Parameters
 
-**`returns`** `string` containing an error message. `null` if the parameters are valid.
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `parameters` | `Record`<`string`, `string`\> | Object containg the entered parameters. |
+
+##### Returns
+
+`string` \| ``null``
+
+`string` containing an error message. `null` if the parameters are valid.
 
 ## Functions
 
 ### renderSkuPicker
 
-▸ **renderSkuPicker**(`elementId`: *string*, `__namedParameters`: Props): *void*
+▸ **renderSkuPicker**(`elementId`, `«destructured»`): `void`
 
-#### Parameters:
+#### Parameters
 
-Name | Type |
------- | ------ |
-`elementId` | *string* |
-`__namedParameters` | Props |
+| Name | Type |
+| :------ | :------ |
+| `elementId` | `string` |
+| `«destructured»` | `Props` |
 
-**Returns:** *void*
+#### Returns
+
+`void`
 
 ___
 
 ### setup
 
-▸ **setup**(`integration`: [*Integration*](interfaces/integration.md)): *void*
+▸ **setup**(`integration`): `void`
 
-#### Parameters:
+#### Parameters
 
-Name | Type |
------- | ------ |
-`integration` | [*Integration*](interfaces/integration.md) |
+| Name | Type |
+| :------ | :------ |
+| `integration` | [`Integration`](interfaces/Integration.md) |
 
-**Returns:** *void*
+#### Returns
+
+`void`

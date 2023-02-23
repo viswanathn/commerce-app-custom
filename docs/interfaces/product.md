@@ -1,54 +1,57 @@
-[@contentful/ecommerce-app-base](../README.md) / Product
+[commerce-app-custom](../README.md) / Product
 
 # Interface: Product
 
-## Hierarchy
-
-* **Product**
-
-## Index
+## Table of contents
 
 ### Properties
 
-* [displaySKU](product.md#displaysku)
-* [externalLink](product.md#externallink)
-* [id](product.md#id)
-* [image](product.md#image)
-* [name](product.md#name)
-* [sku](product.md#sku)
+- [displaySKU](Product.md#displaysku)
+- [externalLink](Product.md#externallink)
+- [id](Product.md#id)
+- [image](Product.md#image)
+- [metadataLink](Product.md#metadatalink)
+- [name](Product.md#name)
+- [sku](Product.md#sku)
 
 ## Properties
 
 ### displaySKU
 
-• `Optional` **displaySKU**: *string*
+• `Optional` **displaySKU**: `string`
 
 ___
 
 ### externalLink
 
-• `Optional` **externalLink**: *string*
+• `Optional` **externalLink**: `string`
 
 ___
 
 ### id
 
-• **id**: *string*
+• **id**: `string`
 
 ___
 
 ### image
 
-• **image**: *string*
+• **image**: `string`
+
+___
+
+### metadataLink
+
+• `Optional` **metadataLink**: `string`
 
 ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
 ___
 
 ### sku
 
-• **sku**: *string*
+• **sku**: `string`

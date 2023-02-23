@@ -1,47 +1,43 @@
-[@contentful/ecommerce-app-base](../README.md) / Pagination
+[commerce-app-custom](../README.md) / Pagination
 
 # Interface: Pagination
 
-## Hierarchy
-
-* **Pagination**
-
-## Index
+## Table of contents
 
 ### Properties
 
-* [count](pagination.md#count)
-* [hasNextPage](pagination.md#hasnextpage)
-* [limit](pagination.md#limit)
-* [offset](pagination.md#offset)
-* [total](pagination.md#total)
+- [count](Pagination.md#count)
+- [hasNextPage](Pagination.md#hasnextpage)
+- [limit](Pagination.md#limit)
+- [offset](Pagination.md#offset)
+- [total](Pagination.md#total)
 
 ## Properties
 
 ### count
 
-• **count**: *number*
+• **count**: `number`
 
 ___
 
 ### hasNextPage
 
-• `Optional` **hasNextPage**: *boolean*
+• `Optional` **hasNextPage**: `boolean`
 
 ___
 
 ### limit
 
-• **limit**: *number*
+• **limit**: `number`
 
 ___
 
 ### offset
 
-• **offset**: *number*
+• **offset**: `number`
 
 ___
 
 ### total
 
-• **total**: *number*
+• **total**: `number`

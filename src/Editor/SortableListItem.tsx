@@ -168,7 +168,7 @@ export const SortableListItem = SortableElement<Props>(
             ) : (
               <Subheading className={styles.sku}>{product.displaySKU ?? product.sku}</Subheading>
             )}
-          </section>
+           {product.metadataLink&& <Subheading >{product.metadataLink }</Subheading>} </section>
         </div>
         {!disabled && (
           <div className={styles.actions}>

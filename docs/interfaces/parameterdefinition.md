@@ -1,29 +1,25 @@
-[@contentful/ecommerce-app-base](../README.md) / ParameterDefinition
+[commerce-app-custom](../README.md) / ParameterDefinition
 
 # Interface: ParameterDefinition
 
 Definition of app configuration parameters
 
-## Hierarchy
-
-* **ParameterDefinition**
-
-## Index
+## Table of contents
 
 ### Properties
 
-* [default](parameterdefinition.md#default)
-* [description](parameterdefinition.md#description)
-* [id](parameterdefinition.md#id)
-* [name](parameterdefinition.md#name)
-* [required](parameterdefinition.md#required)
-* [type](parameterdefinition.md#type)
+- [default](ParameterDefinition.md#default)
+- [description](ParameterDefinition.md#description)
+- [id](ParameterDefinition.md#id)
+- [name](ParameterDefinition.md#name)
+- [required](ParameterDefinition.md#required)
+- [type](ParameterDefinition.md#type)
 
 ## Properties
 
 ### default
 
-• `Optional` **default**: *any*
+• `Optional` **default**: `any`
 
 Default value
 
@@ -31,7 +27,7 @@ ___
 
 ### description
 
-• **description**: *string*
+• **description**: `string`
 
 Short description/explanation
 
@@ -39,7 +35,7 @@ ___
 
 ### id
 
-• **id**: *string*
+• **id**: `string`
 
 Unique id. Used as key in Config object.
 
@@ -47,7 +43,7 @@ ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
 Name / Label
 
@@ -55,7 +51,7 @@ ___
 
 ### required
 
-• **required**: *boolean*
+• **required**: `boolean`
 
 Whether it is possible without providing a value.
 
@@ -63,7 +59,7 @@ ___
 
 ### type
 
-• **type**: *Symbol* \| *List* \| *Number*
+• **type**: ``"Symbol"`` \| ``"Number"`` \| ``"List"``
 
 Parameter type
 - Symbol: Text

@@ -1,32 +1,29 @@
-[@contentful/ecommerce-app-base](../README.md) / Integration
+[commerce-app-custom](../README.md) / Integration
 
 # Interface: Integration
 
-## Hierarchy
-
-* **Integration**
-
-## Index
+## Table of contents
 
 ### Properties
 
-* [color](integration.md#color)
-* [description](integration.md#description)
-* [fetchProductPreviews](integration.md#fetchproductpreviews)
-* [isDisabled](integration.md#isdisabled)
-* [logo](integration.md#logo)
-* [makeCTA](integration.md#makecta)
-* [name](integration.md#name)
-* [openDialog](integration.md#opendialog)
-* [parameterDefinitions](integration.md#parameterdefinitions)
-* [renderDialog](integration.md#renderdialog)
-* [validateParameters](integration.md#validateparameters)
+- [color](Integration.md#color)
+- [description](Integration.md#description)
+- [fetchProductPreviews](Integration.md#fetchproductpreviews)
+- [isDisabled](Integration.md#isdisabled)
+- [logo](Integration.md#logo)
+- [makeCTA](Integration.md#makecta)
+- [name](Integration.md#name)
+- [openDialog](Integration.md#opendialog)
+- [parameterDefinitions](Integration.md#parameterdefinitions)
+- [renderDialog](Integration.md#renderdialog)
+- [skuTypes](Integration.md#skutypes)
+- [validateParameters](Integration.md#validateparameters)
 
 ## Properties
 
 ### color
 
-• **color**: *string*
+• **color**: `string`
 
 The app's primary color
 
@@ -34,7 +31,7 @@ ___
 
 ### description
 
-• **description**: *string*
+• **description**: `string`
 
 Short description of the app
 
@@ -42,35 +39,39 @@ ___
 
 ### fetchProductPreviews
 
-• **fetchProductPreviews**: [*ProductPreviewsFn*](../README.md#productpreviewsfn)
+• **fetchProductPreviews**: [`ProductPreviewsFn`](../README.md#productpreviewsfn)
 
 Function that returns a list for a given list of skus. The returned value is used to render a product preview.
 
-**`param`** List of skus
+**`Param`**
 
-**`param`** App configuration
+List of skus
 
-**`returns`** List of Products which is used to render a preview.
+**`Param`**
+
+App configuration
 
 ___
 
 ### isDisabled
 
-• **isDisabled**: [*DisabledPredicateFn*](../README.md#disabledpredicatefn)
+• **isDisabled**: [`DisabledPredicateFn`](../README.md#disabledpredicatefn)
 
 Function that should return true when the button should be disabled.
 
-**`param`** Currently selected assets
+**`Param`**
 
-**`param`** App configuration
+Currently selected assets
 
-**`returns`** true, if the button in the field location should be disabled. false, if the button should be enabled
+**`Param`**
+
+App configuration
 
 ___
 
 ### logo
 
-• **logo**: *string*
+• **logo**: `string`
 
 Path to the app's logo
 
@@ -78,19 +79,19 @@ ___
 
 ### makeCTA
 
-• **makeCTA**: [*MakeCTAFn*](../README.md#makectafn)
+• **makeCTA**: [`MakeCTAFn`](../README.md#makectafn)
 
 Returns the text that is displayed on the button in the field location.
 
-**`param`** Type of the field the app is used for.
+**`Param`**
 
-**`returns`** Text that should be displayed on the button
+Type of the field the app is used for.
 
 ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
 Name of the app
 
@@ -98,13 +99,14 @@ ___
 
 ### openDialog
 
-• **openDialog**: [*OpenDialogFn*](../README.md#opendialogfn)
+• **openDialog**: [`OpenDialogFn`](../README.md#opendialogfn)
 
 Function that gets called when app wants to open a dialog. Should return an updated list of skus as a Promise.
 
 You probably want to call [`sdk.openCurrentApp`](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/#open-the-current-app-in-a-dialog).
 
-**`example`** 
+**`Example`**
+
 ```javascript
 async function openDialog(sdk, currentValue, config) {
   return await sdk.dialogs.openCurrentApp({
@@ -113,19 +115,23 @@ async function openDialog(sdk, currentValue, config) {
 }
 ```
 
-**`param`** (https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
+**`Param`**
 
-**`param`** Array of currently selected skus
+[FieldExtensionSDK](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
 
-**`param`** App configuration
+**`Param`**
 
-**`returns`** Promise containing a list of selected assets
+Array of currently selected skus
+
+**`Param`**
+
+App configuration
 
 ___
 
 ### parameterDefinitions
 
-• **parameterDefinitions**: [*ParameterDefinition*](parameterdefinition.md)[]
+• **parameterDefinitions**: [`ParameterDefinition`](ParameterDefinition.md)[]
 
 Parameter definition which can be customized on the app configuration page and used in the callback functions.
 
@@ -133,11 +139,12 @@ ___
 
 ### renderDialog
 
-• **renderDialog**: [*RenderDialogFn*](../README.md#renderdialogfn)
+• **renderDialog**: [`RenderDialogFn`](../README.md#renderdialogfn)
 
 Function that gets called within the Iframe when the app is rendered in a dialog location.
 
-**`example`** 
+**`Example`**
+
 ```javascript
 function renderDialog(sdk) {
   const config = sdk.parameters.invocation;
@@ -148,16 +155,27 @@ function renderDialog(sdk) {
 }
 ```
 
-**`param`** (https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
+**`Param`**
+
+[DialogExtensionSDK](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/)
+
+___
+
+### skuTypes
+
+• `Optional` **skuTypes**: { `default?`: `boolean` ; `id`: `string` ; `name`: `string`  }[]
+
+If your app supports multiple sku types (for example - product, product variant, category...) you can provide a list here.
+This configuration will be stored under the skuTypes key in your installation parameters.
 
 ___
 
 ### validateParameters
 
-• **validateParameters**: [*ValidateParametersFn*](../README.md#validateparametersfn)
+• **validateParameters**: [`ValidateParametersFn`](../README.md#validateparametersfn)
 
 Custom code that validates installation parameters that is run before saving.
 
-**`param`** Object containg the entered parameters.
+**`Param`**
 
-**`returns`** `string` containing an error message. `null` if the parameters are valid.
+Object containg the entered parameters.
